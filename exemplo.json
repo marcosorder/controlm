@@ -2,7 +2,7 @@
     "Defaults" : {
         "Application" : "SampleApp",
         "SubApplication" : "SampleSubApp",
-        "RunAs" : "em900",
+        "RunAs" : "root",
         "Host" : "clctm01",
 
         "Job": {
@@ -37,8 +37,8 @@
 
         "ScriptJob": {
             "Type": "Job:Script",
-          	"FilePath":"<SCRIPT_PATH>",
-          	"FileName":"<SCRIPT_NAME>"
+          	"FilePath":"/root/automation-api",
+          	"FileName":"script.sh"
         },
 
         "Flow": {
