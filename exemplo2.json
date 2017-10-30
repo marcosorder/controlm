@@ -1,7 +1,7 @@
 {
     "Defaults" : {
-        "Application" : "SampleApp",
-        "SubApplication" : "SampleSubApp",
+        "Application" : "AppOrder",
+        "SubApplication" : "SubAppOrder",
         "RunAs" : "root",
         "Host" : "clctm01",
 
