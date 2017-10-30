@@ -41,7 +41,7 @@
           	"FileName":"script.sh"
         },
 	
-	"NewJob": {
+	"ScriptJob2": {
 	    "Type": "Job:Command",
 	    "Command": "echo novo job"
 	},
@@ -53,7 +53,7 @@
 
 	"Flow2": {
 	    "Type": "Flow",
-	    "Sequence": ["CommandJob", "NewJob"]
+	    "Sequence": ["CommandJob", "ScriptJob2"]
 	}
 	
     }
