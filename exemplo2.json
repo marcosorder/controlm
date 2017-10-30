@@ -32,8 +32,7 @@
 
         "CommandJob": {
             "Type": "Job:Command",
-            "Command": "echo Hello World!!"
-        },
+            "Command": "echo Primeiro job executado!!" },
 
         "ScriptJob": {
             "Type": "Job:Script",
@@ -43,7 +42,7 @@
 	
 	"ScriptJob2": {
 	    "Type": "Job:Command",
-	    "Command": "echo novo job"
+	    "Command": "echo Segundo job executado!!"
 	},
 
         "Flow": {
