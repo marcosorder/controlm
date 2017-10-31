@@ -32,7 +32,7 @@
 
         "CommandJob": {
             "Type": "Job:Command",
-            "Command": "echo Primeiro job executado!!" },
+            "Command": "echo Teste!!" },
 
         "ScriptJob": {
             "Type": "Job:Script",
