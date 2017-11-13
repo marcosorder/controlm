@@ -1,7 +1,7 @@
 {
     "Defaults" : {
-        "Application" : "SampleApp",
-        "SubApplication" : "SampleSubApp",
+        "Application" : "App",
+        "SubApplication" : "App",
         "RunAs" : "root",
         "Host" : "CTM",
 
