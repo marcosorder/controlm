@@ -3,7 +3,7 @@
         "Application" : "SampleApp",
         "SubApplication" : "SampleSubApp",
         "RunAs" : "root",
-        "Host" : "clctm01",
+        "Host" : "CTM",
 
         "Job": {
             "When" : {
@@ -37,7 +37,7 @@
 
         "ScriptJob": {
             "Type": "Job:Script",
-          	"FilePath":"/root/automation-api",
+          	"FilePath":"/root/automation-api/controlm",
           	"FileName":"script.sh"
         },
 
