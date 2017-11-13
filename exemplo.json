@@ -32,7 +32,7 @@
 
         "CommandJob": {
             "Type": "Job:Command",
-            "Command": "echo Hello World!!"
+            "Command": "echo bunha dunha lochas!!"
         },
 
         "ScriptJob": {
