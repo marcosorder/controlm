@@ -20,7 +20,7 @@
                 "mailToTeam": {
                     "Type": "Mail",
                     "Message": "%%JOBNAME failed",
-                    "To": "order@mail.com"
+                    "To": "test@mail.com"
                 }
             }
         }
