@@ -28,22 +28,32 @@
 
     "AutomationAPISampleFlow": {
         "Type": "Folder",
-        "Comment" : "Code reviewed by John",
+        "Comment" : "Code reviewed by Marcos",
 
-        "CommandJob": {
+        "CommandJob1": {
             "Type": "Job:Command",
-            "Command": "echo bunha dunha lochas!!"
+            "Command": "echo Execucao job 1 !!"
         },
 
         "ScriptJob": {
             "Type": "Job:Script",
-          	"FilePath":"/root/automation-api/controlm",
+          	"FilePath":"/automation-api/controlm",
           	"FileName":"script.sh"
         },
 
-        "Flow": {
+	"CommandJob2": {
+	    "Type": "Job:Command",
+	    "Command": "echo Execucao job 2 !!"
+	},
+
+        "Flow1": {
             "Type": "Flow",
-            "Sequence": ["CommandJob", "ScriptJob"]
-        }
+            "Sequence": ["ScriptJob", "CommandJob1"]
+        },
+	
+	"Flow2": {
+	    "Type": "Flow",
+	    "Sequence": ["ScriptJob", "CommandJob2"]
+	}
     }
 }
