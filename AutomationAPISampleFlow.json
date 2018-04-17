@@ -47,12 +47,12 @@
           	"FileName": "ag_diag_comm"
         },
 
-        "Flow1": {
+        "Fluxo1": {
             "Type": "Flow",
             "Sequence": ["CommandJob", "ScriptJob"]
         },
         
-        "Flow2": {
+        "Fluxo2": {
             "Type": "Flow",
             "Sequence": ["CommandJob", "NewJob"]
         }

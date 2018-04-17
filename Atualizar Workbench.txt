@@ -1,0 +1,5 @@
+git init
+git add <arquivo>
+git status
+git commit -m "comentarios"
+git push -u origin master
