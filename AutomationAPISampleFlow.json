@@ -28,6 +28,8 @@
 
     "AutomationAPISampleFlow": {
         "Type": "Folder",
+        "ControlmServer": "workbench",
+        "SiteStandard": "Regra1",
         "Comment" : "Code reviewed by John",
 
         "CommandJob1": {

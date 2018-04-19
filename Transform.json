@@ -10,13 +10,25 @@
       "Replace" : [ {"Sample(.*)" : "P$1"} ]
     },
     {
+      "Property" :"RunAs",
+      "Replace" : [ {"workbench" : "em900"} ]
+    },
+    {
+      "Property" :"Host",
+      "Replace" : [ {"workbench" : "ctm"} ]
+    },
+    {
       "Property" :"SubApplication",
       "Replace" : [ {"Sample(.*)" : "P$1"} ]
     },
     {
       "ApplyOn"     :  {"Type":"Folder"},
       "Property" : "@",
-      "Replace" : [ {"Automation(.*)" : "P$1"} ]
+      "Replace" : [ {"Automation(.*)" : "$1"} ]
+    },
+    {
+      "Property" : "Job:Script.FilePath",
+      "Assign" : "/opt/controlm/ctm_agent/ctm/script"
     }
   ]
 }
