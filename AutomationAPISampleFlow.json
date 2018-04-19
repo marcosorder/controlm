@@ -30,7 +30,7 @@
         "Type": "Folder",
         "Comment" : "Code reviewed by John",
 
-        "CommandJob": {
+        "CommandJob1": {
             "Type": "Job:Command",
             "Command": "echo meu primeiro job!!"
         },
@@ -41,7 +41,7 @@
           	"FileName": "ag_diag_comm"
         },
         
-        "NewJob": {
+        "CommandJob2": {
             "Type": "Job:Script",
           	"FilePath": "/home/workbench/ctm/scripts",
           	"FileName": "ag_diag_comm"
@@ -49,12 +49,12 @@
 
         "Fluxo1": {
             "Type": "Flow",
-            "Sequence": ["CommandJob", "ScriptJob"]
+            "Sequence": ["ScriptJob", "CommandJob1"]
         },
         
         "Fluxo2": {
             "Type": "Flow",
-            "Sequence": ["CommandJob", "NewJob"]
+            "Sequence": ["ScriptJob", "CommandJob2"]
         }
     }
 }
