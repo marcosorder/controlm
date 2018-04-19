@@ -1,0 +1,22 @@
+{
+  "DeployDescriptor":
+  [
+    {
+      "Property" :"ControlmServer",
+      "Assign" : "CTM"
+    },
+    {
+      "Property" :"Application",
+      "Replace" : [ {"Sample(.*)" : "P$1"} ]
+    },
+    {
+      "Property" :"SubApplication",
+      "Replace" : [ {"Sample(.*)" : "P$1"} ]
+    },
+    {
+      "ApplyOn"     :  {"Type":"Folder"},
+      "Property" : "@",
+      "Replace" : [ {"Automation(.*)" : "P$1"} ]
+    }
+  ]
+}
