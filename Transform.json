@@ -25,10 +25,6 @@
       "ApplyOn"     :  {"Type":"Folder"},
       "Property" : "@",
       "Replace" : [ {"Automation(.*)" : "$1"} ]
-    },
-    {
-      "Property" : "Job:Script.FilePath",
-      "Assign" : "/opt/controlm/ctm_agent/ctm/script"
     }
   ]
 }
