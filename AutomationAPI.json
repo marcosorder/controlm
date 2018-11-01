@@ -1,0 +1,123 @@
+{
+
+    "ProfileHadoop" :
+    {
+        "Type" : "ConnectionProfile:Hadoop",
+        "TargetAgent" : "elephant"
+    },
+	
+	"SFTP-CP": 
+	{
+        "Type": "ConnectionProfile:FileTransfer:SFTP",
+		"TargetAgent" : "desktop-3at10au",
+        "HostName": "elephant",
+        "Port": "22",
+        "User" : "labdata",
+        "Password" : "labdata"
+    },
+
+    "Local-CP" : 
+	{
+        "Type" : "ConnectionProfile:FileTransfer:FTP",
+		"TargetAgent" : "desktop-3at10au",
+        "HostName": "desktop-3at10au",
+        "Port": "21",
+        "User" : "order",
+        "Password" : "order2017"
+    },
+
+    "AutomationAPI": {
+        "Type": "Folder",
+        "Comment" : "Code reviewed by John",
+		
+		"AtualizaIndice": {
+			"Type": "Job:Command",
+			"Command": "sleep 10",
+			"Host": "elephant",
+			"RunAs": "labdata"
+		},
+		
+		"GeraDados": {
+			"Type": "Job:Command",
+			"Command": "/usr/bin/python3 /home/labdata/codigos-pyspark/aula02/criar_dataset.py",
+			"Host": "elephant",
+			"RunAs": "labdata"
+		},
+
+    "ProcessaDados": {
+      "Type": "Job:Hadoop:Spark:Python",
+		  "Host": "elephant",
+		  "ConnectionProfile": "ProfileHadoop",
+			"SparkScript": "file:///home/labdata/codigos-pyspark/aula02/contagem_palavra.py",
+
+	    "Arguments": [
+		    "dados.txt"
+	    ],
+            
+          "SparkOptions": [
+				{"--master": "local[*]"},
+				{"--deploy-mode": "client"}
+            ]
+
+    },
+
+        "CopiaHDFS" :
+        {
+            "Type" : "Job:Hadoop:HDFSCommands",
+			    "Host": "elephant",
+			    "ConnectionProfile": "ProfileHadoop",
+            "Commands" : [
+                {"put"    : "-f /home/labdata/codigos-pyspark/aula02/dados.txt /user/labdata" }
+            ]
+        },
+		
+		"TransfereArquivo": {
+            "Type" : "Job:FileTransfer",
+			      "Host": "desktop-3at10au",
+            "ConnectionProfileSrc" : "Local-CP",
+            "ConnectionProfileDest" : "SFTP-CP",
+		
+            "FileTransfers" :
+            [
+                {
+                    "Src" : "/dados.txt",
+                    "Dest": "/home/labdata/codigos-pyspark/aula02/",
+                    "TransferOption": "SrcToDest",
+                    "TransferType": "Binary"
+                }
+            ]
+        },
+		
+		"MoveDados": {
+			"Type": "Job:Command",
+			"Command": "cp -p /home/labdata/codigos-pyspark/aula02/dados.txt /tmp",
+			"Host": "elephant",
+			"RunAs": "labdata"
+		},
+
+		"Flow1": {
+            "Type": "Flow",
+            "Sequence": ["GeraDados", "TransfereArquivo"]
+        },
+		
+		"Flow2": {
+            "Type": "Flow",
+            "Sequence": ["AtualizaIndice", "TransfereArquivo"]
+        },
+		
+    "Flow3": {
+            "Type": "Flow",
+            "Sequence": ["TransfereArquivo","ProcessaDados"]
+        },
+		
+		"Flow4": {
+            "Type": "Flow",
+            "Sequence": ["ProcessaDados","CopiaHDFS"]
+        },
+		
+		"Flow5": {
+            "Type": "Flow",
+            "Sequence": ["ProcessaDados","MoveDados"]
+        }
+    }
+}
